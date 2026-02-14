@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leisure Explorer - Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      body {
+        background-image: white !important;
+        background: white !important;
+      }
+      
+      .left-panel {
+        flex: 1;
+        max-width: 25%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-sizing: border-box;
+      }
+
+      .left-panel h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .left-panel .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
+
+      /* RESPONSIVE DESIGN: mobile & tablet */
+      @media (max-width: 768px) {
+        .page-wrapper {
+          flex-direction: column; /* stack panels vertically */
+        }
+
+        .left-panel {
+          max-width: 100%; /* full width */
+          padding: 1.5rem;
+        }
+
+        .right-panel {
+          flex: 1;
+          width: 100%;
+          padding: 1.5rem;
+          margin-top: 1rem;
+        }
+
+        .left-panel h2 {
+          font-size: 1rem; /* smaller font for mobile */
+        }
+
+        .navbar .nav-link {
+          margin: 0 0.5rem; /* make navbar links tighter */
+          font-size: 0.9rem;
+        }
+      }
+
+      /* EXTRA SMALL SCREENS: phones */
+      @media (max-width: 480px) {
+        .left-panel h2 {
+          font-size: 0.9rem;
+        }
+
+        .left-panel .btn {
+          font-size: 0.9rem;
+          padding: 0.5rem;
+        }
+
+        .navbar-brand {
+          font-size: 1rem;
+        }
+
+      }
+    </style>
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <!-- NAVBAR: spans full width -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+      <div class="container-fluid d-flex align-items-center">
+        <!-- Main title -->
+        <a class="navbar-brand me-4 fw-semibold text-center" href="./index.html">LEISURE EXPLORER</a>
+
+        <!-- Navbar items + dropdown -->
+        <div class="d-flex align-items-center flex-grow-1">
+          <!-- Home link -->
+          <a class="nav-link ms-2 me-4" href="./index.html">Home</a>
+
+          <!-- Leisure Activities link -->
+          <a class="nav-link ms-4" href="./leisurecards.html"
+            >Leisure Activities</a
+          >
+
+          <!-- Leisure Checklist link -->
+          <a class="nav-link ms-5" href="./leisurechecklist.html"
+            >Leisure Checklist</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- FLEX CONTENT -->
+    <div class="page-wrapper">
+      <div class="left-panel fade-in">
+        <!-- Heading / Quote -->
+        <h2>
+          "We are beginning to discover that the meaning of leisure is really
+          the meaning of life, leisure is freedom and freedom is living." —
+          Douglas H. Sessoms
+        </h2>
+
+        <!-- Buttons -->
+        <a href="leisurecards.html" class="btn btn-primary fade-in"
+          >Explore your leisure activities</a
+        >
+        <a href="leisurechecklist.html" class="btn btn-secondary fade-in"
+          >Leisure checklist</a
+        >
+      </div>
+
+      <div class="right-panel"></div>
+    </div>
+  </body>
+  <footer class="footer">
+    <p>Created by Jeremy Dela Pena, 2026</p>
+  </footer>
+</html>

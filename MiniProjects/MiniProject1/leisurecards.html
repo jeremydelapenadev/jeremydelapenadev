@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leisure Explorer - Activity List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+      <div class="container-fluid d-flex align-items-center">
+        <!-- Brand -->
+        <a class="navbar-brand me-4 fw-semibold text-center" href="./index.html"
+          >LEISURE EXPLORER</a
+        >
+
+        <!-- Navbar items + dropdown -->
+        <div class="d-flex align-items-center flex-grow-1">
+          <!-- Home link -->
+          <a class="nav-link ms-2 me-3" href="./index.html">Home</a>
+
+          <!-- Category dropdown -->
+          <select
+            id="category-filter"
+            class="form-select me-3"
+            style="width: auto"
+          >
+            <option value="all">All Leisure Activities</option>
+            <option value="Entertainment and Media">
+              Entertainment and Media
+            </option>
+            <option value="Gaming and Interactive Play">
+              Gaming and Interactive Play
+            </option>
+            <option value="Physical and Fitness Activities">
+              Physical and Fitness Activities
+            </option>
+            <option value="Creative and Artistic Pursuits">
+              Creative and Artistic Pursuits
+            </option>
+            <option value="Social Connection and Communication">
+              Social Connection and Communication
+            </option>
+            <option value="Learning, Reading, and Mental Enrichment">
+              Learning, Reading, and Mental Enrichment
+            </option>
+          </select>
+
+          <!-- Leisure Checklist link -->
+          <a class="nav-link ms-2" href="./leisurechecklist.html"
+            >Leisure Checklist</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cards -->
+    <div class="container mt-4 fade-in">
+      <div class="row" id="card-list"></div>
+    </div>
+
+    <!-- Responsive design applied to all cards above. -->
+    <template id="card-template">
+      <div class="col-lg-3 col-md-4 col-sm-12 mb-3 fade-in">
+        <div class="card">
+          <img
+            src="https://source.widen.net/content/7yk7jmsaxj/webp/WRG-2241030_3-ft-Nordic-Frost-Decorated-Tree-Kit_SSC.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      const cardList = document.getElementById("card-list");
+      const cardTemplate = document.getElementById("card-template");
+      const filter = document.getElementById("category-filter");
+
+      let activitiesData = [];
+
+      // Refer here for data processing & display
+
+      // 1. Fetch leisure activities JSON
+      // Using the internal API
+      fetch("./leisure-activities.json")
+        .then((res) => res.json())
+        .then((data) => {
+          // Flatten categories into one array
+          activitiesData = data.categories.flatMap((category) =>
+            category.items.map((item) => ({
+              ...item,
+              category: category.name,
+            }))
+          );
+
+          renderCards(activitiesData);
+        })
+        .catch((err) => console.error("Error loading JSON:", err));
+
+      // Render the cards
+      function renderCards(items) {
+        cardList.innerHTML = ""; // clear existing cards to avoid getting duplicates
+
+        items.forEach((item) => {
+          const card = cardTemplate.content.cloneNode(true); // makes a new copy
+
+          // filling in the card content; modifying the cloned / new copy
+          card.querySelector(".card-img-top").src = item.image;
+          card.querySelector(".card-title").innerText = item.title;
+          card.querySelector(".card-text").innerText = item.description;
+
+          // this allows the user to be redirected to the link (where the button is linked)
+          const btn = card.querySelector(".btn");
+          btn.addEventListener("click", () => {
+            window.open(item.link, "_blank");
+          });
+
+          // from chatGPT - when the user is given the option to be redirected either on a new tab or on the same tab
+          /*
+          btn.addEventListener("click", (e) => {
+            if (e.ctrlKey || e.metaKey) {
+              // Ctrl (Windows/Linux) or Cmd (Mac) → new tab
+              window.open(item.link, "_blank");
+            } else {
+              // Normal click → same tab
+              window.location.href = item.link;
+            }
+          }); */
+
+          cardList.appendChild(card);
+        });
+      }
+
+      // Filter by category using addEventListener
+      filter.addEventListener("change", () => {
+        const selectedCategory = filter.value;
+
+        const filteredItems =
+          selectedCategory === "all"
+            ? activitiesData
+            : activitiesData.filter(
+                (item) => item.category === selectedCategory
+              );
+
+        renderCards(filteredItems);
+
+        // reset animation
+        content.classList.remove("fade-in");
+
+        // force reflow so animation can restart
+        void content.offsetWidth;
+
+        // update content (example)
+        content.textContent = `You selected: ${select.value}`;
+
+        // re-apply animation
+        content.classList.add("fade-in");
+      });
+    </script>
+  </body>
+</html>

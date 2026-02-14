@@ -1,0 +1,83 @@
+body {
+  background-image: url("../assets/leisurecollage.jpg");
+  background-size: cover; /* fill the screen */
+  background-repeat: no-repeat; /* no tiling */
+  background-position: center; /* center image */
+  background-attachment: fixed; /* Optional parallax effect */
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5); /* 50% translucency */
+  z-index: -1;
+}
+
+/* Flex layout */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left 25% */
+.left-panel {
+  width: 25%;
+  background-color: #ffffff;
+}
+
+/* Right 75% */
+.right-panel {
+  width: 75%;
+  background-image: url("../assets/leisurecollage.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Ensure navbar sits above overlay */
+.right-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    min-height: 50vh;
+  }
+  
+}
+
+/* animation for quote and button */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* footer */
+
+.footer {
+  background-color: black;
+  padding: 20px 10px 5px 5px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-align:center
+}
