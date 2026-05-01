@@ -8,7 +8,7 @@
 
 ## Project Structure
 
-connectispaces/
+```connectispaces/
 │
 ├── backend/
 │   ├── models/
@@ -25,7 +25,7 @@ connectispaces/
 │   │   └── context/
 │   │   └── hooks/
 │   └── App.jsx
-└── README.md
+└── README.md```
 
 ## Environment Variables
 
