@@ -1,4 +1,4 @@
-# Hi there 👋 I'm Jeremy
+# Hi there 👋 I'm Jeremy.
 
 ## 🚀 About Me
 🔭 I’m currently expanding my knowledge in **Software Engineering** after completing a certificate course at the *Institute of Data*. Through this program, I gained hands-on experience in:

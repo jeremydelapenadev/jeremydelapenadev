@@ -7,6 +7,10 @@
 - Code editor (e.g., VS Code)
 
 ## Project Structure
+<<<<<<< HEAD
+=======
+
+>>>>>>> 580f73d3b6ebcc007686d58c1091b71465320c82
 ```
 connectispaces/
 │
