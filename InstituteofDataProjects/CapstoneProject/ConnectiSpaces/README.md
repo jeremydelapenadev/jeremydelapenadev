@@ -7,7 +7,7 @@
 - Code editor (e.g., VS Code)
 
 ## Project Structure
-
+```
 connectispaces/
 │
 ├── backend/
@@ -26,6 +26,7 @@ connectispaces/
 │   │   └── hooks/
 │   └── App.jsx
 └── README.md
+```
 
 ## Environment Variables
 

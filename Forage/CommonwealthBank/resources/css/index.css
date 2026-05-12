@@ -1,0 +1,164 @@
+/* ===== GLOBAL STYLING ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #FFFFFF;
+  color: #1E1E1E;
+  line-height: 1.6;
+}
+
+/* ===== BANNER ===== */
+
+.banner {
+  background: linear-gradient(165deg, #FFFF00 0%, #FFCC00 100%);
+  color: #1E1E1E;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.banner h1 {
+  font-size: 4rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.banner p {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+/* ===== TIPS SECTION ===== */
+
+.tips {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.tips h2 {
+  background-color: #FFFFFF;
+  padding: 18px 24px;
+  border-radius: 16px 16px 0 0;
+  margin-top: 30px;
+  font-size: 1.3rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tips p {
+  background-color: #FFFFFF;
+  padding: 20px 24px;
+  border-radius: 0 0 16px 16px;
+  color: #BEBEB9;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== HOVER EFFECT ===== */
+
+.tips h2:hover,
+.tips p:hover {
+  transform: translateY(-2px);
+  transition: 0.3s ease;
+}
+
+/* ===== FLEXBOX TIPS LAYOUT ===== */
+
+.tips-section {
+  display: flex;
+  min-height: 70vh;
+  margin: 50px auto;
+  max-width: 1200px;
+  gap: 30px;
+  padding: 0 30px;
+}
+
+/* LEFT SIDEBAR */
+
+.tips-sidebar {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.tips-sidebar h2 {
+  margin-bottom: 20px;
+  color: #1E1E1E;
+}
+
+.tip-link {
+  display: block;
+  text-decoration: none;
+  color: #1E1E1E;
+  background: #f5f7fa;
+  margin-bottom: 15px;
+  padding: 18px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.tip-link:hover {
+  background: #FFCC00;
+  transform: translateX(5px);
+}
+
+/* RIGHT CONTENT */
+
+.tips-content {
+  flex: 2;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.tips-content h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.tips-content p {
+  margin-bottom: 20px;
+  color: #1E1E1E;
+  line-height: 1.8;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 60px 20px;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+
+  .tips h2 {
+    font-size: 1.1rem;
+  }
+
+  .tips-section {
+    flex-direction: column;
+  }
+}
